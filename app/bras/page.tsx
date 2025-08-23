@@ -35,9 +35,10 @@ interface Product {
 }
 
 
+// Utility function to generate image filename
 function getFilename(data: Product[], id: string): string {
   console.log(data);
-  const item1 = data.filter((pro: Product) => pro.gIdName === id);
+  const item1 = data.filter((pro: any) => pro.gIdName === id);
   const item = item1[0];
 
   if (!item) return '';
