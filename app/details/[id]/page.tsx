@@ -1,4 +1,5 @@
 // app/details/[id]/page.tsx
+import { PageProps } from "@/.next/types/app/layout";
 import ProductDetailsClient from "./ProductDetailsClient";
 
 async function getProduct(id: string) {
@@ -27,12 +28,9 @@ function normalizeItem(item: any) {
   return item;
 }
 
-export default async function ProductDetailsPage({
-  params,
-}: {
-  params: { id: string };
-}) {
-  const data = await getProduct(params.id);
+export default async function Page({ params }: { params: { id: string } }) {
+
+  const data = await getProduct(params!.id);
 
   if (!data) {
     return <div>Error loading product data</div>;
