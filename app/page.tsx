@@ -1,6 +1,7 @@
 export default function Home() {
   return (
-    <div className="h-screen flex items-center justify-center -translate-y-[100px]  overflow-y-scroll hide-scrollbar">
+   <>
+    <div className="h-screen flex items-center justify-center   overflow-y-scroll hide-scrollbar">
       <div className="text-center">
         <h3 className="text-pink-700 text-2xl font-bold">
           <strong>intibergs.com</strong>
@@ -18,5 +19,6 @@ export default function Home() {
         </p>
       </div>
     </div>
+   </>
   );
 }
