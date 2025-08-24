@@ -1,5 +1,4 @@
 // app/details/[id]/page.tsx
-import { PageProps } from "@/.next/types/app/layout";
 import ProductDetailsClient from "./ProductDetailsClient";
 
 async function getProduct(id: string) {
@@ -18,7 +17,7 @@ async function getProduct(id: string) {
 
 function normalizeItem(item: any) {
   // Parse "color" if it’s a JSON string
-  if (typeof item.color === "string") {
+  if (typeof item?.color === "string") {
     try {
       item.color = JSON.parse(item.color);
     } catch {
@@ -28,9 +27,11 @@ function normalizeItem(item: any) {
   return item;
 }
 
+// ✅ No PageProps import — just type params directly
 export default async function Page({ params }: { params: { id: string } }) {
+  console.log(params.id, typeof params.id);
 
-  const data = await getProduct(params!.id);
+  const data = await getProduct(params.id);
 
   if (!data) {
     return <div>Error loading product data</div>;
